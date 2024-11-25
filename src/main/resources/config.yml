@@ -1,0 +1,24 @@
+# Database
+database:
+  host: 127.0.0.1
+  port: 3306
+  name: cfaction
+  username: username
+  password: password
+
+# Settings
+language: "en-US"
+blacklisted-faction-name:
+  - "raciste"
+  - "pute"
+  - "salop"
+
+# Messages
+header: "&e&m------&e Faction &m------&r"
+footer: "&e&m-------------------------&r"
+
+commands:
+  usage:
+    color: "&e"
+  description:
+    color: "&7"

@@ -1,0 +1,11 @@
+no-permission: "&4You don't have permission to use this command.&r"
+console: "&4Only players can use this command.&r"
+player: "&4Only console can use this command.&r"
+
+blacklisted-faction-name: "This faction name is forbidden."
+
+commands:
+  faction:
+    description: "&7Description of the &e/faction &7command.&r"
+    create:
+      description: "Description of create."

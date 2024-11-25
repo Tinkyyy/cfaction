@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+}
+
+group = 'eu.tinky.cfaction'
+version = '1.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url = 'https://maven.elmakers.com/repository/'
+
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.7.10-R0.1-SNAPSHOT'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.register('move', Copy) {
+    dependsOn build
+
+    if (project.hasProperty("movingPath")) {
+        from layout.buildDirectory.dir('libs')
+        into project.findProperty("movingPath")
+        include "*.*"
+    } else {
+        logger.log(LogLevel.ERROR, "Moving path undefined ! Cannot move file.")
+    }
+}

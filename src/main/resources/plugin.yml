@@ -1,0 +1,26 @@
+name: CFaction
+description: This plugin implements the faction game mode using a MySQL database
+main: eu.tinky.cfaction.CFaction
+version: 1.0
+authors: [IM_TinkyWinky]
+prefix: CFaction
+
+commands:
+  faction:
+    description: This command allows to manage the game mode
+    aliases: [ 'f' ]
+    permission: cfaction.command
+
+permissions:
+  cfaction.command:
+    description: Allows to type the faction command
+    default: true
+  cfaction.claim:
+    description: Allows to claim a chunk
+    default: true
+  cfaction.*:
+    description: Permission to all the subcommands for the CFaction plugin
+    default: op
+    children:
+      cfaction.claim: true
+      cfaction.command: true
